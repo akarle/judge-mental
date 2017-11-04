@@ -9,7 +9,9 @@ with open(br_file, 'r') as br_f:
     reader = csv.reader(br_f, delimiter=',')
     reader.next()  # remove headers
     for row in reader:
-        key = str(row[1]) + '---' + str(row[2])
+        key = str(row[1]).replace(" ", "") + '---' + \
+            str(row[2]).replace(" ", "")
+
         val = row[3]
         reviews[key] = val
 
@@ -24,7 +26,9 @@ with open(summ_file, 'r') as summ_f:
     reader = csv.reader(summ_f, delimiter='\t')
 
     for row in reader:
-        key = str(row[2]) + '---' + str(row[3])
+        key = str(row[2]).replace(" ", "") + '---' + \
+            str(row[3]).replace(" ", "")
+
         val = row[-1]
         summarys[key] = val
 
@@ -40,3 +44,5 @@ with open(comb_file, 'w') as comb_f:
     for key in intersect:
         row = [key, summarys[key], str(reviews[key])]
         writer.writerow(row)
+
+print "%d samples in the combined set" % len(intersect)
