@@ -7,9 +7,6 @@ from PIL import ImageEnhance
 from enchant.checker import SpellChecker
 import sys
 
-print "opened script"
-sys.stdout.flush()
-
 pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
 
 image = Image.open('image.jpg')
