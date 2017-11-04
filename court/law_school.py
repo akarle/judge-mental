@@ -68,6 +68,11 @@ plt.title('Gold vs Predicted Ratings')
 fig2 = plt.figure(2)
 plt.hist(errs, 50, label=['errors'])
 plt.legend(loc='upper right')
+
+fig3 = plt.figure(3)
+plt.hist(labels, 100, label=['Gold Labels'])
+plt.legend(loc='upper right')
+plt.title('Gold Label Distribution')
 plt.show()
 
 # Save Classifiers

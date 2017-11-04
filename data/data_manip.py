@@ -1,4 +1,5 @@
 import csv
+# import nltk
 
 reviews = {}
 br_file = 'br.csv'
@@ -33,6 +34,11 @@ with open(summ_file, 'r') as summ_f:
 
 # Moment of truth... the overlap
 # TODO: optimize for better overlap
+summ_set = set(summarys.keys())
+rev_set = set(reviews.keys())
+
+# TODO: add some sort of fuzzy matching using nltk edit_distance
+
 intersect = set(summarys.keys()) & set(reviews.keys())
 
 # Write the combined data set to file
