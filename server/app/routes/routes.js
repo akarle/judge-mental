@@ -7,13 +7,13 @@ module.exports = function(app) {
 		if (!req.files)
 			return res.status(400).send("No image uploaded.");
 		console.log(req.files.file.name);
-		req.files.file.mv(path.join(__dirname+'/../../../extract/image.jpg'), (err) => {
+		req.files.file.mv(path.join(__dirname+'/../../../court/image.jpg'), (err) => {
 			if (err)
 				return res.status(500).send(err);
 			});
 			console.log('got image');
 			var extract_evidence = spawn('python',
-				[path.join(__dirname+'/../../../extract/evidence.py')]);
+				[path.join(__dirname+'/../../../court/court.py')]);
 			console.log('waiting for evidence');
 			extract_evidence.stdout.on('data', function(data) {
 				console.log('got evidence');
@@ -24,7 +24,7 @@ module.exports = function(app) {
 	});
 
 	app.get('/image.jpg', (req, res) => {
-		res.sendFile(path.resolve(__dirname+'/../../../extract/image.jpg'));
+		res.sendFile(path.resolve(__dirname+'/../../../court/image.jpg'));
 	});
 
 	app.get('/', (req, res) => {
