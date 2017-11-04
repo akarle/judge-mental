@@ -10,6 +10,7 @@ module.exports = function(app) {
 		req.files.file.mv(path.join(__dirname+'/../../../extract/image.jpg'), (err) => {
 			if (err)
 				return res.status(500).send(err);
+			});
 			console.log('got image');
 			var extract_evidence = spawn('python',
 				[path.join(__dirname+'/../../../extract/evidence.py')]);
@@ -18,12 +19,12 @@ module.exports = function(app) {
 				console.log('got evidence');
 				var text = data.toString('utf8');
 				res.send(text);
-			});
+
 		});
 	});
 
 	app.get('/image.jpg', (req, res) => {
-		res.sendFile(path.resolve('./temp/image.jpg'));
+		res.sendFile(path.resolve(__dirname+'/../../../extract/image.jpg'));
 	});
 
 	app.get('/', (req, res) => {

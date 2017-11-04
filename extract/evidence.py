@@ -9,7 +9,7 @@ import sys
 
 pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
 
-image = Image.open('image.jpg')
+image = Image.open('/home/ubuntu/judge-mental/extract/image.jpg')
 image = image.resize((image.width * 2, image.height * 2), Image.BILINEAR)
 image = ImageEnhance.Contrast(image).enhance(5.0)
 
@@ -22,10 +22,9 @@ for err in chkr:
     count += 1
 
 goodness = float(count) / len(text.split())
-print goodness
 if goodness > 0.15:
     print ""
     sys.stdout.flush()
 else:
-    print text
+    # fff
     sys.stdout.flush()
