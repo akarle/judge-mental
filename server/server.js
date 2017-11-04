@@ -4,7 +4,7 @@ const fileUpload = require('express-fileupload');
 
 const server = express();
 
-const port = 80;
+const port = 8080;
 
 server.use(fileUpload());
 

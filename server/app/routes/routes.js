@@ -11,8 +11,7 @@ module.exports = function(app) {
 			if (err)
 				return res.status(500).send(err);
 			console.log('got image');
-			var extract_evidence = spawn('python', ["/../../../extract/evidence.py", 
-				'/../../temp/image.jpg']);
+			var extract_evidence = spawn('python', ["/../../../extract/evidence.py"]);
 			console.log('waiting for evidence');
 			extract_evidence.stdout.on('data', (data) => {
 				console.log('got evidence');

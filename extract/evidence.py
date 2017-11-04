@@ -8,9 +8,9 @@ from enchant.checker import SpellChecker
 import sys
 
 
-pytesseract.pytesseract.tesseract_cmd = '/usr/local/bin/tesseract'
+pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
 
-image = Image.open(sys.argv[1])
+image = Image.open('image.jpg')
 image = image.resize((image.width * 2, image.height * 2), Image.BILINEAR)
 image = ImageEnhance.Contrast(image).enhance(5.0)
 
