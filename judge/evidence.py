@@ -6,6 +6,7 @@ import pytesseract
 from PIL import ImageEnhance
 from enchant.checker import SpellChecker
 import sys
+from court import verdict
 
 pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
 
@@ -23,7 +24,7 @@ for err in chkr:
 
 goodness = float(count) / len(text.split())
 if goodness > 0.15:
-    print ""
+    print verdict(text)
     sys.stdout.flush()
 else:
     # fff
