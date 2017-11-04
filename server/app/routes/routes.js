@@ -12,7 +12,7 @@ module.exports = function(app) {
 				return res.status(500).send(err);
 			console.log('got image');
 			var extract_evidence = spawn('python',
-				[path.join(__dirname+'/test.py')]);
+				[path.join(__dirname+'/../../../extract/evidence.py')]);
 			console.log('waiting for evidence');
 			extract_evidence.stdout.on('data', function(data) {
 				console.log('got evidence');
