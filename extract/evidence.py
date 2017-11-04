@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 try:
     import Image
 except ImportError:
@@ -8,6 +6,9 @@ import pytesseract
 from PIL import ImageEnhance
 from enchant.checker import SpellChecker
 import sys
+
+print "opened script"
+sys.stdout.flush()
 
 pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
 
