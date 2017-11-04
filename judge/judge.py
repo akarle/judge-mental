@@ -8,6 +8,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics import r2_score
 from matplotlib import pyplot as plt
+from sklearn.externals import joblib
 
 # Load Data
 data_file = os.path.join('..', 'data', 'combined.csv')
@@ -63,3 +64,4 @@ plt.hist(errs, 50)
 plt.show()
 
 # Save Classifiers
+joblib.dump([lr, cv], 'judge.pkl') 
