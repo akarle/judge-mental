@@ -60,8 +60,15 @@ print "R^2 Score ", r2score
 # Graph errors
 errs = np.subtract(trim_preds, y_test)
 
-plt.hist(errs, 50)
+to_graph = np.vstack((y_test, trim_preds)).T
+plt.hist(to_graph, 50, label=['gold', 'pred'])
+plt.legend(loc='upper right')
+plt.title('Gold vs Predicted Ratings')
+
+fig2 = plt.figure(2)
+plt.hist(errs, 50, label=['errors'])
+plt.legend(loc='upper right')
 plt.show()
 
 # Save Classifiers
-joblib.dump([lr, cv], 'judge.pkl') 
+joblib.dump([lr, cv], 'judge.pkl')
