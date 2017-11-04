@@ -11,11 +11,13 @@ module.exports = function(app) {
 			if (err)
 				return res.status(500).send(err);
 			console.log('got image');
-			var extract_evidence = spawn('python', ["/../../../extract/evidence.py"]);
+			var extract_evidence = spawn('python',
+				[path.join(__dirname+'/test.py')]);
 			console.log('waiting for evidence');
-			extract_evidence.stdout.on('data', (data) => {
+			extract_evidence.stdout.on('data', function(data) {
 				console.log('got evidence');
-				res.send(data);
+				var text = data.toString('utf8');
+				res.send(text);
 			});
 		});
 	});
