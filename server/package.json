@@ -1,0 +1,31 @@
+{
+  "name": "judge-mental",
+  "version": "1.0.0",
+  "description": "Judge books based on their covers and summaries.",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akarle/judge-mental.git"
+  },
+  "keywords": [
+    "nlp",
+    "book"
+  ],
+  "author": "Alex Karle, Makenzie Schwartz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akarle/judge-mental/issues"
+  },
+  "homepage": "https://github.com/akarle/judge-mental#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-fileupload": "^0.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}
