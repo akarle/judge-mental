@@ -7,14 +7,21 @@ from PIL import ImageEnhance
 from enchant.checker import SpellChecker
 import sys
 
+print "got here"
 
 pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
+
+print "tesseract found"
 
 image = Image.open('image.jpg')
 image = image.resize((image.width * 2, image.height * 2), Image.BILINEAR)
 image = ImageEnhance.Contrast(image).enhance(5.0)
 
+print "image enhanced"
+
 text = pytesseract.image_to_string(image)
+
+print "text extracted"
 
 chkr = SpellChecker("en_US")
 chkr.set_text(text)
