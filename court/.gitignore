@@ -1,3 +1,7 @@
 *.pkl
 *.jpg
 *.png
+*.jpg_original
+*.jpg-original
+image
+text.txt
