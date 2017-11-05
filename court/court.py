@@ -23,7 +23,9 @@ def go_to_court(court_path, tesseract_path):
 
     pytesseract.pytesseract.tesseract_cmd = tesseract_path
 
-    subprocess.call(os.path.join(court_path, 'fix-exif.sh'), shell=True)
+    FNULL = open(os.devnull, 'w')
+    subprocess.call(os.path.join(court_path, 'fix-exif.sh'), stdout=FNULL,
+                    shell=True)
     image = Image.open(os.path.join(court_path, 'image.jpg'))
     # exif_dict = piexif.load(image.info["exif"])
     # w, h = image.size
