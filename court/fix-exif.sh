@@ -1,4 +1,4 @@
 #!/bin/bash
 
-RES = exiftool -ResolutionUnit image.jpg
-echo RES
+RES=exiftool -ResolutionUnit image.jpg
+echo $RES
