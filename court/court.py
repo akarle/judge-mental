@@ -34,6 +34,9 @@ def go_to_court(court_path, tesseract_path, runrotate=0):
 
     text = pytesseract.image_to_string(image)
 #    print text
+    if len(text) == 0:
+        print "-99"
+        sys.stdout.flush()
     with open(os.path.join(court_path, 'rtext.txt'), 'w') as f:
         f.write(text.encode('utf8'))
     chkr = SpellChecker("en_US")
