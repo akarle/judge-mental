@@ -1,2 +1,9 @@
 .DS_Store
 *.pyc
+*.jpg
+*.png
+client/ios/JudgeMental/JudgeMental/again-button.png
+client/ios/JudgeMental/JudgeMental/judge-button.png
+client/ios/JudgeMental/JudgeMental/judging-mental-logo.png
+client/ios/JudgeMental/JudgeMental/star-cover.png
+client/ios/JudgeMental/JudgeMental/stars.png

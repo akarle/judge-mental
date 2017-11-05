@@ -9,14 +9,12 @@
 #import <UIKit/UIKit.h>
 @import UIKit;
 @import AVFoundation;
+#import "DGActivityIndicatorView/DGActivityIndicatorView.h"
 
 @interface ViewController : UIViewController {
-    IBOutlet UILabel *label;
     bool cameraAvail;
+    CGFloat initialMaskPos;
 }
-
-@property (retain, nonatomic) IBOutlet UILabel *label;
-
 
 @end
 
