@@ -37,14 +37,14 @@ def go_to_court(court_path, tesseract_path, runrotate=0):
     if len(text) == 0:
         print "-99"
         sys.stdout.flush()
-    with open(os.path.join(court_path, 'rtext.txt'), 'w') as f:
-        f.write(text.encode('utf8'))
     chkr = SpellChecker("en_US")
     chkr.set_text(text)
+    textproc = text
     count = 0
     for err in chkr:
         # print err.word
         count += 1
+        textproc = textproc.replace(err.word, '')
 
     # print count
     # print len(text.split())
@@ -53,5 +53,11 @@ def go_to_court(court_path, tesseract_path, runrotate=0):
         print "-99"
         sys.stdout.flush()
     else:
-        print str(verdict([text])[0])
+        ver = str(verdict([textproc])[0])
+        with open(os.path.join(court_path, 'rtext.txt'), 'w') as f:
+            f.write("Score: ")
+            f.write(ver)
+            f.write("\n================================\n\n")
+            f.write(textproc.encode('utf8'))
+        print str(ver)
         sys.stdout.flush()
