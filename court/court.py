@@ -30,7 +30,7 @@ def go_to_court(court_path, tesseract_path, runrotate=0):
     image = Image.open(os.path.join(court_path, 'image-original.jpg'))
     image = image.resize((image.width * 2, image.height * 2), Image.BILINEAR)
     image = ImageEnhance.Contrast(image).enhance(5.0)
-    image.save(os.path.joing(court_path, 'image-hc.jpg'), 'JPEG')
+    image.save(os.path.join(court_path, 'image-hc.jpg'), 'JPEG')
 
     text = pytesseract.image_to_string(image)
 #    print text
