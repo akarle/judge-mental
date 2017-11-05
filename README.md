@@ -11,7 +11,7 @@ The pipeline breaks down into two parts:
 1. The user visible application
 2. The regression model training pipeline
 
-![Pipeline](Pipeline.jpg)
+![Pipeline](PipelineNew.jpg)
 
 Law-School is where the "Judges" are learned. A "Judge" consists of both a regression model to output a rating for a review and a feature extractor to be used to extract features to output the review. To train judges we tried numerous models from Linear Regression (with and without regularization) to Random Forests. After law school, a judge is saved to file for quick access in the Court.
 
