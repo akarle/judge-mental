@@ -26,21 +26,14 @@ def go_to_court(court_path, tesseract_path):
     FNULL = open(os.devnull, 'w')
     subprocess.call(os.path.join(court_path, 'fix-exif.sh'), stdout=FNULL,
                     shell=True)
-    image = Image.open(os.path.join(court_path, 'image.jpg'))
-    # exif_dict = piexif.load(image.info["exif"])
-    # w, h = image.size
-    # exif_dict['0th'][piexif.ImageIFD.XResolution] = (w, 1)
-    # exif_dict['0th'][piexif.ImageIFD.YResolution] = (h, 1)
-    # exif_bytes = piexif.dump(exif_dict)
-    # image.save('image', 'jpeg', exif=exif_bytes)
-    # image = Image.open(os.path.join(court_path, 'image.jpg'))
-#    image.rotate(90)
+    image = Image.open(os.path.join(court_path, 'image-original.jpg'))
     image = image.resize((image.width * 2, image.height * 2), Image.BILINEAR)
     image = ImageEnhance.Contrast(image).enhance(5.0)
+    image.save("image-hc.jpg")
 
     text = pytesseract.image_to_string(image)
 #    print text
-    with open(os.path.join(court_path, 'text.txt'), 'w') as f:
+    with open(os.path.join(court_path, 'rtext.txt'), 'w') as f:
         f.write(text.encode('utf8'))
     chkr = SpellChecker("en_US")
     chkr.set_text(text)
