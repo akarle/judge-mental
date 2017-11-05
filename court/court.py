@@ -7,7 +7,7 @@ import os
 import subprocess
 
 
-def go_to_court(court_path, tesseract_path, runrotate=False):
+def go_to_court(court_path, tesseract_path, runrotate=0):
     def verdict(evidence):
         """ Make a verdict (review) about evidence (plot summary) """
         # Import Judge (clf, count_vec) combo
@@ -23,14 +23,14 @@ def go_to_court(court_path, tesseract_path, runrotate=False):
 
     pytesseract.pytesseract.tesseract_cmd = tesseract_path
 
-    if runrotate:
+    if runrotate == 1:
         FNULL = open(os.devnull, 'w')
         subprocess.call(os.path.join(court_path, 'fix-exif.sh'), stdout=FNULL,
                         shell=True)
     image = Image.open(os.path.join(court_path, 'image-original.jpg'))
     image = image.resize((image.width * 2, image.height * 2), Image.BILINEAR)
     image = ImageEnhance.Contrast(image).enhance(5.0)
-    image.save("image-hc.jpg")
+    image.save(os.path.joing(court_path, 'image-hc.jpg'), 'JPEG')
 
     text = pytesseract.image_to_string(image)
 #    print text
