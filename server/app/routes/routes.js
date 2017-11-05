@@ -19,7 +19,6 @@ module.exports = function(app) {
 				console.log('got evidence');
 				var text = data.toString('utf8');
 				res.send(text);
-
 		});
 	});
 
