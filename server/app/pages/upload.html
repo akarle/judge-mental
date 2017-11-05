@@ -1,11 +1,44 @@
 <html>
 <head>
-	<title>Title</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <style>
+    body {
+        background-color: ff5b62;
+    }
+
+    img {
+        display: block;
+        margin: auto;
+        width: 50%;
+    }
+
+    </style>
+
+	<title>Judge Mental</title>
 </head>
+
 <body>
-	<form method="post" enctype="multipart/form-data" action="/pipeline">
-    	<input type="file" name="file">
-    	<input type="submit" value="Submit">
-	</form>
+    <div>
+        <img src="logo.jpg">
+    </div>
+    <div>
+        <img src="judge.jpg" style='width: 30%;'>
+    </div>
+    <div style="padding-top:120px; display: block; text-align: center">
+    <!--    <form method="post" enctype="multipart/form-data" action="/pipeline">
+            <input type="file" name="file">
+            <input type="submit" value="Submit">
+        </form> -->
+
+        <label class="custom-file">
+            <form id="form1" action="/pipeline" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" id="file" class="custom-file-input" onchange="document.getElementById('form1').submit()"> 
+                <span class="custom-file-control">
+                    Get Judged!
+                </span>
+            </form>
+        </label>
+    </div>
 </body>
 </html>

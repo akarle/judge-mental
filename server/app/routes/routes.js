@@ -49,7 +49,17 @@ module.exports = function(app) {
 		res.sendFile(path.resolve(__dirname+'/../../../court/image-hc.jpg'));
 	});
 
+    app.get('/logo.jpg', (req, res) => {
+		res.sendFile(path.join(__dirname+'/../pages/judging-mental-logo_720.png'));
+	});
+	
+    app.get('/judge.jpg',  (req, res) => {
+		res.sendFile(path.join(__dirname+'/../pages/if_judge_bailiff_court_justice_man_person_342417_480.png'));
+	});
+
 	app.get('/', (req, res) => {
 		res.sendFile(path.join(__dirname+'/../pages/upload.html'));
 	});
+
+
 };
