@@ -13,7 +13,7 @@ module.exports = function(app) {
 			});
 			console.log('got image');
 			var extract_evidence = spawn('python',
-				[path.join(__dirname+'/../../../court/aws_court.py')]);
+				[path.join(__dirname+'/../../../court/aws_court.py'), 1]);
 			console.log('waiting for evidence');
 			extract_evidence.stdout.on('data', function(data) {
 				console.log('got evidence');
@@ -32,7 +32,7 @@ module.exports = function(app) {
 			});
 			console.log('got image');
 			var extract_evidence = spawn('python',
-				[path.join(__dirname+'/../../../court/aws_court.py')]);
+				[path.join(__dirname+'/../../../court/aws_court.py'), 0]);
 			console.log('waiting for evidence');
 			extract_evidence.stdout.on('data', function(data) {
 				console.log('got evidence');
