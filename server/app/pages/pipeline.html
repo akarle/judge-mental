@@ -13,6 +13,16 @@
         width: 50%;
     }
 
+    img.dis {
+        width: 90%;
+    }
+
+    iframe {
+        width: 90%;
+        height: 650px;
+        font-size: 200%;
+    }
+
     </style>
 
 	<title>Judge Mental</title>
@@ -25,14 +35,16 @@
         </div>
         <div class="row">
             <div class="col">
-                <img src="image.jpg">
+                <h5 style="text-align:center">Original</h5>
+                <img class="dis" src="image.jpg">
             </div>
             <div class="col">
-       
-                <img src="hc.jpg">
+                <h5 style="text-align:center">Processed</h5> 
+                <img class="dis" src="hc.jpg">
             </div>
             <div class="col">
-                RAWTEXT
+            <h5 style="text-align:center">Extracted Text</h5>
+            <iframe src="rtext.txt"></iframe>
             </div>
         </div>
     </div>

@@ -1,6 +1,7 @@
 var path = require('path');
 var fs = require('fs');
 var spawn = require('child_process').spawn;
+var replace = require('replace');
 
 module.exports = function(app) {
 	app.post('/upload', (req, res) => {
@@ -37,7 +38,7 @@ module.exports = function(app) {
 			extract_evidence.stdout.on('data', function(data) {
 				console.log('got evidence');
 				var text = data.toString('utf8');
-				res.sendFile(path.join(__dirname+'/../pages/pipeline.html'));
+                res.sendFile(path.join(__dirname+'/../pages/pipeline.html'));
 		});
 	});
 
@@ -60,6 +61,15 @@ module.exports = function(app) {
 	app.get('/', (req, res) => {
 		res.sendFile(path.join(__dirname+'/../pages/upload.html'));
 	});
+	app.get('/rtext.txt', (req, res) => {
+		res.sendFile(path.join(__dirname+'/../../../court/rtext.txt'));
+	});
+	app.get('/visualize', (req, res) => {
+		res.sendFile(path.join(__dirname+'/../pages/pipeline.html'));
+	});
+
+
+
 
 
 };
